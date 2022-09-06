@@ -61,7 +61,16 @@ class PostResource extends Resource
                             return '-';
                         }
 
-                        return $record->published_at->toDateTimeString();
+                        return collect([
+                                'months' => $record->published_at->diff()->m,
+                                'days' => $record->published_at->diff()->m,
+                                'hours' => $record->published_at->diff()->h,
+                            ])
+                                ->filter()
+                                ->map(function (int $value, string $key) {
+                                    return "{$value} {$key}";
+                                })
+                                ->implode(', ') . ' from now';
                     })
                     ->sortable(),
                 Tables\Columns\BadgeColumn::make('status')
