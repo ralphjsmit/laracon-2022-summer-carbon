@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Author;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,7 +14,8 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'published_at' => fake()->dateTimeBetween('-6 months', '+4 months'),
+            'author_id' => fake()->randomElement(Author::pluck('id')),
+            'published_at' => fake()->dateTimeBetween('-12 months', '+4 months'),
             'content' => fake()->paragraphs(3, true),
         ];
     }

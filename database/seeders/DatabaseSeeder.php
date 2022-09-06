@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -11,13 +12,17 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Ralph J. Smit',
-            'email' => 'rjs@ralphjsmit.com',
-            'password' => Hash::make('secret'),
-        ]);
+        User::factory()
+            ->create([
+                'name' => 'Ralph J. Smit',
+                'email' => 'rjs@ralphjsmit.com',
+                'password' => Hash::make('secret'),
+            ]);
 
-        Post::factory(12)
+        Author::factory(5)
+            ->create();
+
+        Post::factory(128)
             ->create();
 
         Post::factory(4)
