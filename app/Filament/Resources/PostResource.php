@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
+use Closure;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
@@ -13,6 +14,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\Expression;
+use Illuminate\Support\Carbon;
 
 class PostResource extends Resource
 {
@@ -31,7 +33,18 @@ class PostResource extends Resource
                 TextInput::make('published_at')
                     ->placeholder('2022-09-14 09:41:00')
                     ->helperText('Please enter the published at date in the format Y-m-d H:i:s')
-                    ->afterStateHydrated(fn (?Post $record, TextInput $component) => $component->state($record->published_at?->format('Y-m-d H:i:s'))),
+                    ->afterStateHydrated(fn (?Post $record, TextInput $component) => $component->state($record->published_at?->format('Y-m-d H:i:s')))
+                    ->rules([
+                        function () {
+                            return function (string $attribute, $value, Closure $fail) {
+                                $valueIsInValidForm = Carbon::hasFormat($value, 'Y-m-d H:i:s');
+
+                                if (! $valueIsInValidForm) {
+                                    $fail('Please enter the date in the correct format.');
+                                }
+                            };
+                        },
+                    ]),
                 Textarea::make('content')
                     ->columnSpan(2),
             ]);
