@@ -45,7 +45,7 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('published_at')
-                    ->getStateUsing(function (Post $record) {
+                    ->getStateUsing(function (Post $record): string {
                         if ($record->published_at === null) {
                             return '-';
                         }
