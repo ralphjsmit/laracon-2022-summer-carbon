@@ -8,7 +8,7 @@ $intervalA = CarbonInterval::minutes(30);
 
 //$intervals = [$intervalA, $intervalB, $intervalC];
 
-//usort($intervals, [CarbonInterval::class, 'compareDateIntervals']);
+//usort($intervals, ...);
 //
 //dd($intervals);
 
