@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.1",
         "filament/filament": "^2.0",
-        "flowframe/laravel-trend": "^0.1.1",
+        "flowframe/laravel-trend": "@dev",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
@@ -64,5 +64,11 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "~/Packages/laravel-trend"
+        }
+    ]
 }

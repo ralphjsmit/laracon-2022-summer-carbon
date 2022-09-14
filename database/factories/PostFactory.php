@@ -15,7 +15,7 @@ class PostFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'author_id' => fake()->randomElement(Author::pluck('id')),
-            'published_at' => fake()->dateTimeBetween('-12 months', '+4 months'),
+            'published_at' => fake()->dateTimeBetween('-12 months', '+1 week'),
             'content' => fake()->paragraphs(3, true),
         ];
     }

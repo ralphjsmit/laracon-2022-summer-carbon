@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8ba22fa1e99a275c5a39b89d5323640",
+    "content-hash": "e1b033175f44c8832bd7847fa2422500",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1034,17 +1034,11 @@
         },
         {
             "name": "flowframe/laravel-trend",
-            "version": "v0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Flowframe/laravel-trend.git",
-                "reference": "10f80dad8225caca58d286b580ebd27c2a0bf3fa"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Flowframe/laravel-trend/zipball/10f80dad8225caca58d286b580ebd27c2a0bf3fa",
-                "reference": "10f80dad8225caca58d286b580ebd27c2a0bf3fa",
-                "shasum": ""
+                "type": "path",
+                "url": "/Users/ralphjsmit/Packages/laravel-trend",
+                "reference": "dd00920b628e6e9655aeb6c59921248ee8ff0937"
             },
             "require": {
                 "illuminate/contracts": "^8.37|^9",
@@ -1076,7 +1070,19 @@
                     "Flowframe\\Trend\\Database\\Factories\\": "database/factories"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Flowframe\\Trend\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "./vendor/bin/pest --no-coverage"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -1094,17 +1100,9 @@
                 "laravel",
                 "laravel-trend"
             ],
-            "support": {
-                "issues": "https://github.com/Flowframe/laravel-trend/issues",
-                "source": "https://github.com/Flowframe/laravel-trend/tree/v0.1.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/larsklopstra",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-02-25T13:52:24+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "fruitcake/php-cors",
@@ -1572,16 +1570,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.27.0",
+            "version": "v9.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "27572f45120fd3977d92651a71d8c711a9aaa790"
+                "reference": "396a89e1f3654123d1c7f56306051212e5c75bc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/27572f45120fd3977d92651a71d8c711a9aaa790",
-                "reference": "27572f45120fd3977d92651a71d8c711a9aaa790",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/396a89e1f3654123d1c7f56306051212e5c75bc0",
+                "reference": "396a89e1f3654123d1c7f56306051212e5c75bc0",
                 "shasum": ""
             },
             "require": {
@@ -1748,7 +1746,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-08-30T13:34:43+00:00"
+            "time": "2022-09-06T14:57:01+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -8779,7 +8777,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "flowframe/laravel-trend": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
